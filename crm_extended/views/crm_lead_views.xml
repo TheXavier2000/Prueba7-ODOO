@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista de Árbol -->
+        <record id="cmr_lead_tree_view_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.tree.view.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="type"/>
+                    <field name="project_id"/>
+                    <field name="lead_code" readonly="1" states="draft" copy="false"/>
+                    <field name="user_partner_id"/>
+                    <field name="is_tech"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="cmr_lead_form_view_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.form.view.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="type"/>
+                    <field name="project_id"/>
+                    <field name="lead_code" readonly="1" states="draft" copy="false"/>
+                    <field name="user_partner_id"/>
+                    <field name="is_tech"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
